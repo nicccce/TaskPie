@@ -1,0 +1,41 @@
+security:
+  jwt:
+    secret: gqwcygrdwouqcbhfdegqyfrhoqwjmdkcosncaiogbyutrewgcfydeqgcyyeqgcwehfhesiwjncjisbguyfwqef
+    expire: 7200000
+server:
+  port: 8080
+spring:
+  application:
+    name: java-server
+  datasource:
+    url: jdbc:mysql://202.194.14.120:3306/java_1_23?allowPublicKeyRetrieval=true&useSSL=false
+    username: java_1_23
+    password: JavaP123@
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  jmx:
+    enabled:false
+  # Mail server properties
+  mail:
+    host: smtp.sdu.edu.cn
+    port: 25
+    username: xqli@sdu.edu.cn
+    password: 111
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+attach:
+  folder: /teach/java2/2025-1
