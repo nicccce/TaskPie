@@ -43,8 +43,8 @@ public class User {
     @Column(length = 200)
     private String bio;
 
-    @Column(length = 10, nullable = false)
-    private String role;
+    @Column(nullable = false)
+    private Integer role;
 
     @Column(nullable = false)
     private boolean active;

@@ -1,5 +1,10 @@
 package sdu.group_23.taskpie.data.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@Getter
+@AllArgsConstructor
 public enum TeamRole {
 
     LEADER(10),
@@ -7,5 +12,4 @@ public enum TeamRole {
 
     public final int value;
 
-    TeamRole(int value) { this.value = value; }
 }

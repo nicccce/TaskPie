@@ -15,7 +15,7 @@ public class GetMeResponse {
     private String realName;
     private String nickName;
     private String bio;
-    private String role;
+    private Integer role;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

@@ -64,7 +64,6 @@ public class UserService {
                 .bio(user.getBio())
                 .role(user.getRole())
                 .createdAt(user.getCreatedAt())
-                .updatedAt(user.getUpdatedAt())
                 .build();
 
         return Response.success(response);

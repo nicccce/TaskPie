@@ -42,8 +42,6 @@ GET/team/{teamId}/member 获取小组成员列表
 
 DELETE/team/{teamId}/remove 移除成员（多个）（组长）
 
-POST/team/{teamId}/invite 邀请成员（多个）（组长）
-
 POST/team/{teamId}/apply 申请加入小组（非组员）
 
 PATCH/team/{teamId}/transfer 转让组长（组长）
@@ -79,14 +77,14 @@ POST/task/{taskId}/submit 提交任务
 
 # Notice 通知相关
 
-POST/notice/create 创建通知
+POST/noticeEnum/create 创建通知
 
-GET/notice/list 获取所有通知
+GET/noticeEnum/list 获取所有通知
 
-GET/notice/{noticeId} 获取通知具体信息
+GET/noticeEnum/{noticeId} 获取通知具体信息
 
-PUT/notice/{noticeId} 更新通知状态
+PUT/noticeEnum/{noticeId} 更新通知状态
 
-POST/notice/{noticeId} 申请/邀请类通知的同意与拒绝
+POST/noticeEnum/{noticeId} 申请/邀请类通知的同意与拒绝
 
 # Upload 附件相关

@@ -3,6 +3,7 @@ package sdu.group_23.taskpie.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sdu.group_23.taskpie.data.dto.team.CreateRequest;
+import sdu.group_23.taskpie.data.enums.TeamRole;
 import sdu.group_23.taskpie.data.po.Team;
 import sdu.group_23.taskpie.data.po.TeamMember;
 import sdu.group_23.taskpie.data.vo.Response;
@@ -29,7 +30,7 @@ public class TeamService {
         TeamMember teamMember = TeamMember.builder()
                 .teamId(team.getTeamId())
                 .userId(team.getLeaderId())
-                .role("LEADER")
+                .role(TeamRole.LEADER.getValue())
                 .build();
 
         teamMemberRepository.save(teamMember);

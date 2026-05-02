@@ -14,6 +14,9 @@ public enum CommonErr {
     //user
     USER_NOT_FOUND(20001, "用户不存在"),
 
+    //Notice
+    NOTICE_NOT_FOUND(50001, "通知不存在"),
+
     //Jwt
     UNAUTHORIZED(401, "认证失败"),
     AUTH_EXCEPTION(401, "账户异常");

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class LoginResponse {
-    private Integer userId;
-    private String role;
+    private String nikeName;
+    private Integer role;
     private String token;
 }

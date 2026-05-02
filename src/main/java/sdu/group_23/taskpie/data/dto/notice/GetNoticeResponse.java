@@ -1,0 +1,23 @@
+package sdu.group_23.taskpie.data.dto.notice;
+
+import lombok.Builder;
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+@Data
+@Builder
+public class GetNoticeResponse {
+    private Integer noticeId;
+    private Integer type;
+    private String title;
+    private String content;
+    private Integer senderId;
+    private Integer teamId;
+    private Integer receiverId;
+    private Integer status;
+    private Boolean read;
+    private Boolean top;
+    private LocalDateTime createdAt;
+    private LocalDateTime readAt;
+}

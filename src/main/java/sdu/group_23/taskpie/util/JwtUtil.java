@@ -4,6 +4,7 @@ import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.io.Decoders;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class JwtUtil {
 
     @Value("${security.jwt.secret}")
@@ -30,7 +32,7 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String generateToken(Integer userId, String role) {
+    public String generateToken(Integer userId, Integer role) {
         Date now = new Date();
         Date expireDate = new Date(now.getTime() + expire);
 
@@ -64,9 +66,10 @@ public class JwtUtil {
         return Integer.parseInt(userId.toString());
     }
 
-    public String getRoleFromToken(String token) {
+    public Integer getRoleFromToken(String token) {
         Claims claims = parseToken(token);
-        return claims.get("role", String.class);
+        Object role = claims.get("role");
+        return Integer.parseInt(role.toString());
     }
 
     private Claims parseToken(String token) {

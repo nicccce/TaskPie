@@ -27,8 +27,8 @@ public class TeamMember {
     @Id
     private Integer userId;
 
-    @Column(length = 10, nullable = false)
-    private String role;
+    @Column(nullable = false)
+    private Integer role;
 
     @CreationTimestamp
     @Column(nullable = false, updatable = false)

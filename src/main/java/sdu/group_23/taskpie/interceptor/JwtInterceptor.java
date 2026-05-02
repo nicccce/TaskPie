@@ -23,13 +23,13 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtInterceptor implements HandlerInterceptor {
 
-    @Autowired
-    private JwtUtil jwtUtil;
+    private final JwtUtil jwtUtil;
     private final UserRepository userRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public boolean preHandle(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,@NonNull Object handler) throws Exception {
+
         if (!(handler instanceof HandlerMethod)) {
             return true;
         }
@@ -50,7 +50,7 @@ public class JwtInterceptor implements HandlerInterceptor {
 
         try{
             Integer userId = jwtUtil.getUserIdFromToken(token);
-            String role = jwtUtil.getRoleFromToken(token);
+            Integer role = jwtUtil.getRoleFromToken(token);
 
             User user = userRepository.findByUserId(userId);
 
