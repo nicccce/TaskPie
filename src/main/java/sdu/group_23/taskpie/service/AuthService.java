@@ -63,7 +63,7 @@ public class AuthService {
         if(!user.isActive()) { return Response.error(CommonErr.LOGIN_FAILURE); }
 
         LoginResponse loginResponse = new LoginResponse();
-        loginResponse.setNikeName(user.getNickName());
+        loginResponse.setNickName(user.getNickName());
         loginResponse.setRole(user.getRole());
         loginResponse.setToken(jwtUtil.generateToken(user.getUserId(),  user.getRole()));
 

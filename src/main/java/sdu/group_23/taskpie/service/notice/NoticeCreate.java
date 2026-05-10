@@ -19,11 +19,11 @@ public class NoticeCreate {
                 .type(noticeEnum.getType().getValue())
                 .title(noticeEnum.getTitle())
                 .content(noticeEnum.getContent())
-                .senderId(0)
-                .teamId(0)
+                .senderId(-1)
+                .teamId(-1)
                 .receiverId(0)
                 .status(0)
-                .read(false)
+                .hasRead(false)
                 .top(false)
                 .build();
 
@@ -37,11 +37,11 @@ public class NoticeCreate {
                 .type(noticeEnum.getType().getValue())
                 .title(noticeEnum.getTitle())
                 .content(noticeEnum.getContent())
-                .senderId(0)
-                .teamId(0)
+                .senderId(-1)
+                .teamId(-1)
                 .receiverId(receiverId)
                 .status(0)
-                .read(false)
+                .hasRead(false)
                 .top(false)
                 .build();
 
@@ -49,17 +49,17 @@ public class NoticeCreate {
 
     }
 
-    public void teamAnnouncement(NoticeEnum noticeEnum, Integer senderId, Integer teamId){
+    public void teamAnnouncement(NoticeEnum noticeEnum, Integer leaderId, Integer teamId){
 
         Notice notice = Notice.builder()
                 .type(noticeEnum.getType().getValue())
                 .title(noticeEnum.getTitle())
                 .content(noticeEnum.getContent())
-                .senderId(senderId)
+                .senderId(leaderId)
                 .teamId(teamId)
                 .receiverId(0)
                 .status(0)
-                .read(false)
+                .hasRead(false)
                 .top(false)
                 .build();
 
@@ -67,17 +67,17 @@ public class NoticeCreate {
 
     }
 
-    public void teamTask(NoticeEnum noticeEnum, Integer senderId, Integer teamId, Integer receiverId){
+    public void teamTask(NoticeEnum noticeEnum, Integer leaderId, Integer teamId, Integer receiverId){
 
         Notice notice = Notice.builder()
                 .type(noticeEnum.getType().getValue())
                 .title(noticeEnum.getTitle())
                 .content(noticeEnum.getContent())
-                .senderId(senderId)
+                .senderId(leaderId)
                 .teamId(teamId)
                 .receiverId(receiverId)
                 .status(0)
-                .read(false)
+                .hasRead(false)
                 .top(false)
                 .build();
 
@@ -97,7 +97,7 @@ public class NoticeCreate {
                 .teamId(teamId)
                 .receiverId(receiverId)
                 .status(Status.PENDING.getValue())
-                .read(false)
+                .hasRead(false)
                 .top(false)
                 .build();
 
@@ -117,7 +117,7 @@ public class NoticeCreate {
                 .teamId(teamId)
                 .receiverId(receiverId)
                 .status(Status.PENDING.getValue())
-                .read(false)
+                .hasRead(false)
                 .top(false)
                 .build();
     }

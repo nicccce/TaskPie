@@ -29,6 +29,14 @@ public class Notice {
     @Column(nullable = false, length = 500)
     private String content;
 
+    /*
+    系统通知对receiverId(0:全体)有效
+    小组对senderId teamId receiverId(0:全体)有效
+    邀请、申请对senderId teamId receiverId有效
+
+    无效位置为负(正常情况)
+     */
+
     @Column(nullable = false)
     private Integer senderId;
 
@@ -41,7 +49,7 @@ public class Notice {
     private Integer status;
 
     @Column(nullable = false)
-    private Boolean read;
+    private Boolean hasRead;
 
     @Column(nullable = false)
     private Boolean top;

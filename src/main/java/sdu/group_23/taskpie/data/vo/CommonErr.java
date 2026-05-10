@@ -15,7 +15,17 @@ public enum CommonErr {
     USER_NOT_FOUND(20001, "用户不存在"),
 
     //Notice
-    NOTICE_NOT_FOUND(50001, "通知不存在"),
+    NOTICE_NOT_FOUND(30001, "通知不存在"),
+
+    //Team
+    TEAM_NOT_FOUND(40001, "小组不存在"),
+    NOT_TEAM_MEMBER(40002, "不是小组成员"),
+
+    //Task
+
+    //System
+    PARAM_ERROR(60001, "参数错误"),
+    PERMISSION_DENIED(60002, "权限不足"),
 
     //Jwt
     UNAUTHORIZED(401, "认证失败"),

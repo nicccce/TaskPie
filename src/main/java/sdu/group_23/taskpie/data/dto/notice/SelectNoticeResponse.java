@@ -7,11 +7,10 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-public class GetNoticeResponse {
+public class SelectNoticeResponse {
     private Integer noticeId;
     private Integer type;
     private String title;
-    private String content;
     private Integer senderId;
     private Integer teamId;
     private Integer receiverId;
