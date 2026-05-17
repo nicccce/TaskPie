@@ -31,3 +31,38 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# ========================
+# Frontend (frontend/)
+# ========================
+
+### 依赖 ###
+frontend/node_modules/
+
+### 构建产物 ###
+frontend/dist/
+frontend/.output/
+
+### TypeScript 编译缓存 ###
+frontend/*.tsbuildinfo
+frontend/tsconfig.tsbuildinfo
+frontend/tsconfig.node.tsbuildinfo
+frontend/**/*.tsbuildinfo
+
+### Vite 生成的声明文件 ###
+frontend/vite.config.d.ts
+frontend/vite.config.*.d.ts
+
+### 日志与临时文件 ###
+frontend/*.log
+frontend/*.err
+frontend/*.out
+frontend/*.err.log
+frontend/*.out.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+### 本地环境变量 ###
+frontend/.env.local
+frontend/.env.*.local

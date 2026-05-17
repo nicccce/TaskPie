@@ -120,5 +120,7 @@ public class NoticeCreate {
                 .hasRead(false)
                 .top(false)
                 .build();
+
+        noticeRepository.save(notice);
     }
 }

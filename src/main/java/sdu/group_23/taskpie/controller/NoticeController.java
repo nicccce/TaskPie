@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import sdu.group_23.taskpie.data.dto.PageResponse;
+import sdu.group_23.taskpie.data.dto.notice.HandleNoticeRequest;
 import sdu.group_23.taskpie.data.dto.notice.GetNoticeResponse;
 import sdu.group_23.taskpie.data.dto.notice.SelectNoticeRequest;
 import sdu.group_23.taskpie.data.dto.notice.SelectNoticeResponse;
@@ -26,6 +27,11 @@ public class NoticeController {
     @PostMapping("/select")
     public Response<PageResponse<SelectNoticeResponse>> select(@RequestBody @Valid SelectNoticeRequest selectNoticeRequest) {
         return noticeService.select(selectNoticeRequest);
+    }
+
+    @PatchMapping("/{noticeId}/handle")
+    public Response<Void> handleNotice(@PathVariable Integer noticeId, @RequestBody @Valid HandleNoticeRequest request) {
+        return noticeService.handleNotice(noticeId, request);
     }
 
 }

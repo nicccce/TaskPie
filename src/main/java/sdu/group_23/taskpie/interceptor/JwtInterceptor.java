@@ -30,6 +30,11 @@ public class JwtInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,@NonNull Object handler) throws Exception {
 
+        // 放行所有 CORS 预检请求
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            return true;
+        }
+
         if (!(handler instanceof HandlerMethod)) {
             return true;
         }

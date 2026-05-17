@@ -39,8 +39,10 @@ public class UserService {
     }
 
     public Response<Void> updateMe(UpdateMeRequest request) {
-        if(userRepository.existsByStudentId(request.getStudentId())) { return Response.error(CommonErr.STUDENT_ID_ALREADY_EXISTS); }
         User user = userRepository.findByUserId(UserContextUtil.getCurrentUserId());
+        if(!user.getStudentId().equals(request.getStudentId()) && userRepository.existsByStudentId(request.getStudentId())) {
+            return Response.error(CommonErr.STUDENT_ID_ALREADY_EXISTS);
+        }
 
         user.setStudentId(request.getStudentId());
         user.setRealName(request.getRealName());
@@ -85,5 +87,4 @@ public class UserService {
     }
 
 }
-
 

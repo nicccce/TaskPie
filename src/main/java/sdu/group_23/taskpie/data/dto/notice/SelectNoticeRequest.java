@@ -1,11 +1,9 @@
 package sdu.group_23.taskpie.data.dto.notice;
 
 import jakarta.validation.constraints.Min;
-import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class SelectNoticeRequest {
 
     @Min(value = 0, message = "页数不能小于0")

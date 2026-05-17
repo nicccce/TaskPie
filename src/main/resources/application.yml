@@ -3,20 +3,23 @@ security:
     secret: gqwcygrdwouqcbhfdegqyfrhoqwjmdkcosncaiogbyutrewgcfydeqgcyyeqgcwehfhesiwjncjisbguyfwqef
     expire: 7200000
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
 spring:
   application:
     name: java-server
   datasource:
-    url: jdbc:mysql://202.194.14.120:3306/java_1_23?allowPublicKeyRetrieval=true&useSSL=false
-    username: java_1_23
-    password: JavaP123@
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://202.194.14.120:3306/java_1_23?allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${SPRING_DATASOURCE_USERNAME:java_1_23}
+    password: ${SPRING_DATASOURCE_PASSWORD:JavaP123@}
+  jpa:
+    hibernate:
+      ddl-auto: none
   servlet:
     multipart:
       max-file-size: 200MB
       max-request-size: 200MB
   jmx:
-    enabled:false
+    enabled: false
   # Mail server properties
   mail:
     host: smtp.sdu.edu.cn
@@ -38,4 +41,4 @@ spring:
       enabled: true
       force: true
 attach:
-  folder: /teach/java2/2025-1
+  folder: ${ATTACH_FOLDER:/teach/java2/2025-1}

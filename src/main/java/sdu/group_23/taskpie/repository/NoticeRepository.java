@@ -20,4 +20,18 @@ public interface NoticeRepository extends JpaRepository<Notice, Integer> {
 
     @Query("SELECT n FROM Notice n WHERE n.type IN :types AND n.receiverId = :receiverId ORDER BY n.createdAt DESC")
     Page<Notice> findInAndApNotices(@Param("types") List<Integer> types, @Param("receiverId") Integer receiverId, Pageable pageable);
+
+    @Query("SELECT n FROM Notice n WHERE " +
+            "(n.type IN :systemTypes AND (n.receiverId = :receiverId OR n.receiverId = 0)) OR " +
+            "(n.type IN :teamTypes AND n.teamId IN :teamIds AND (n.receiverId = :receiverId OR n.receiverId = 0)) OR " +
+            "(n.type IN :actionTypes AND n.receiverId = :receiverId) " +
+            "ORDER BY n.createdAt DESC")
+    Page<Notice> findVisibleNotices(
+            @Param("systemTypes") List<Integer> systemTypes,
+            @Param("teamTypes") List<Integer> teamTypes,
+            @Param("actionTypes") List<Integer> actionTypes,
+            @Param("teamIds") List<Integer> teamIds,
+            @Param("receiverId") Integer receiverId,
+            Pageable pageable
+    );
 }
